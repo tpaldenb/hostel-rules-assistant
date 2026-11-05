@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hostel &amp; Transport Rules</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1>Rules Desk</h1>
+    <p>Hostel and transport answers, with the date of every rule</p>
+  </div>
+  <div class="controls">
+    <label class="asof">
+      <span>Rules as of</span>
+      <input type="date" id="asOf" aria-label="Show rules as of this date">
+    </label>
+    <button type="button" id="resetDate" class="link" hidden>Back to today</button>
+    <span id="modeBadge" class="mode" title=""></span>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="chat" aria-label="Conversation">
+    <div id="pastBanner" class="banner" hidden></div>
+    <div id="thread" class="thread" aria-live="polite">
+      <div id="welcome" class="welcome">
+        <h2>Ask about gate times, leave or buses</h2>
+        <p>Answers come only from the hostel manual and notices. Each rule shows its notice date, and rules that have been replaced are marked.</p>
+        <div id="starters" class="starters"></div>
+      </div>
+    </div>
+    <form id="askForm" class="composer">
+      <textarea id="question" rows="1" maxlength="500" placeholder="Ask a question" aria-label="Your question" required></textarea>
+      <button type="submit" id="send">Ask</button>
+    </form>
+  </section>
+
+  <aside class="side" aria-label="Sources and notices">
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tabSource" aria-selected="true" aria-controls="paneSource">Rule history</button>
+      <button type="button" role="tab" id="tabBoard" aria-selected="false" aria-controls="paneBoard">Notice board</button>
+    </div>
+    <div id="paneSource" class="pane" role="tabpanel" aria-labelledby="tabSource">
+      <p class="empty">Select a citation in an answer to see the full clause and how the rule has changed.</p>
+    </div>
+    <div id="paneBoard" class="pane" role="tabpanel" aria-labelledby="tabBoard" hidden>
+      <div class="filters" id="filters"></div>
+      <div id="boardList"></div>
+    </div>
+  </aside>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
